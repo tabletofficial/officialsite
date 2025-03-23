@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблет - Новости про Романию</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Сброс отступов и полей */
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        /* Основные стили */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50, #34495e);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        /* Параллакс-эффект */
+        .parallax {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('https://via.placeholder.com/1920x1080') center/cover no-repeat fixed;
+            opacity: 0.3;
+        }
+        /* Заголовок */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeInDown 1.5s ease;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 4rem;
+            margin-bottom: 10px;
+            color: #00aaff;
+            text-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff;
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff, 0 0 30px #00aaff;
+            }
+            to {
+                text-shadow: 0 0 20px #00aaff, 0 0 40px #00aaff, 0 0 60px #00aaff;
+            }
+        }
+        h5 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ddd;
+            animation: fadeIn 2s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Основной контент */
+        .content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 1s ease;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #00aaff;
+            animation: textScale 2s infinite alternate;
+        }
+        @keyframes textScale {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+        /* Форма публикации новостей */
+        .news-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .news-form input,
+        .news-form textarea {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 1rem;
+            color: #fff;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .news-form input::placeholder,
+        .news-form textarea::placeholder {
+            color: #aaa;
+        }
+        .news-form input:focus,
+        .news-form textarea:focus {
+            border-color: #00aaff;
+        }
+        .news-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .news-form button {
+            background: rgba(0, 170, 255, 0.2);
+            color: #00aaff;
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        .news-form button:hover {
+            background: rgba(0, 170, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+            animation: none;
+        }
+        /* Список новостей */
+        .news-list {
+            margin-top: 30px;
+            text-align: left;
+        }
+        .news-item {
+            background: rgba(0, 170, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .news-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #00aaff;
+        }
+        .news-item p {
+            font-size: 1rem;
+            color: #ddd;
+            margin: 5px 0;
+        }
+        .news-item button {
+            background: rgba(255, 0, 0, 0.2);
+            color: #ff5555;
+            padding: 8px 16px;
+            border-radius: 50px;
+            border: none;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .news-item button:hover {
+            background: rgba(255, 0, 0, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+        /* Кнопка возврата */
+        .back-button {
+            margin-top: 30px;
+            display: inline-block;
+            background: rgba(0, 170, 255, 0.2);
+            color: #00aaff;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .back-button i {
+            margin-right: 10px;
+        }
+        .back-button:hover {
+            background: rgba(0, 170, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+        /* Футер */
+        footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #aaa;
+            animation: fadeIn 2s ease;
+        }
+        footer a {
+            color: #00aaff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #0088cc;
+        }
+    </style>
+</head>
+<body>
+    <!-- Параллакс-фон -->
+    <div class="parallax"></div>
+    <!-- Заголовок -->
+    <header>
+        <h1>Новости Романии</h1>
+        <h5>Публикация новостей</h5>
+    </header>
+    <!-- Основной контент -->
+    <div class="content">
+        <h3>Добавьте новость, его смогут прочитать люди!</h3>
+        <!-- Форма публикации новостей -->
+        <form class="news-form" id="newsForm">
+            <input type="text" id="newsTitle" placeholder="Заголовок новости" required>
+            <textarea id="newsContent" placeholder="Текст новости" required></textarea>
+            <button type="submit">
+                <i class="fas fa-plus"></i> Добавить новость
+            </button>
+        </form>
+        <!-- Список новостей -->
+        <div class="news-list" id="newsList">
+            <!-- Новости будут добавляться сюда -->
+        </div>
+        <!-- Кнопка возврата -->
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> На главную
+        </a>
+    </div>
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2025 Таблет. Все права защищены.</p>
+    </footer>
+    <script>
+        // Локальное хранилище для новостей
+        let news = JSON.parse(localStorage.getItem('news')) || [];
+        
+        // Функция для отображения новостей
+        function renderNews() {
+            const newsList = document.getElementById('newsList');
+            newsList.innerHTML = '';
+            news.forEach((item, index) => {
+                const newsItem = document.createElement('div');
+                newsItem.className = 'news-item';
+                newsItem.innerHTML = `
+                    <h4>${item.title}</h4>
+                    <p>${item.content}</p>
+                    <button onclick="deleteNews(${index})">
+                        <i class="fas fa-trash"></i> Удалить
+                    </button>
+                `;
+                newsList.appendChild(newsItem);
+            });
+        }
+
+        // Функция для добавления новости
+        function addNews(event) {
+            event.preventDefault();
+            const title = document.getElementById('newsTitle').value;
+            const content = document.getElementById('newsContent').value;
+            if (title && content) {
+                news.push({ title, content });
+                localStorage.setItem('news', JSON.stringify(news));
+                renderNews();
+                document.getElementById('newsForm').reset();
+            }
+        }
+
+        // Функция для удаления новости
+        function deleteNews(index) {
+            news.splice(index, 1);
+            localStorage.setItem('news', JSON.stringify(news));
+            renderNews();
+        }
+
+        // Инициализация
+        document.getElementById('newsForm').addEventListener('submit', addNews);
+        renderNews();
+    </script>
+</body>
+</html>
