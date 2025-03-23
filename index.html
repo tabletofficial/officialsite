@@ -17,15 +17,15 @@
         /* Основные стили */
         body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #00ffff, #00ccff, #ff00ff, #ff0099);
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50, #34495e);
             background-size: 400% 400%;
             animation: gradientBG 10s ease infinite;
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
-            color: #333;
+            justify-content: center;
             min-height: 100vh;
+            color: #fff;
         }
 
         @keyframes gradientBG {
@@ -34,31 +34,65 @@
             100% { background-position: 0% 50%; }
         }
 
+        /* Заголовок */
         header {
-            padding: 50px 20px;
-            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeInDown 1.5s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h1 {
             font-family: 'Pacifico', cursive;
             font-size: 4rem;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: #00aaff;
+            text-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff, 0 0 30px #00aaff;
+            }
+            to {
+                text-shadow: 0 0 20px #00aaff, 0 0 40px #00aaff, 0 0 60px #00aaff;
+            }
         }
 
         h5 {
             font-size: 1.5rem;
             margin-bottom: 20px;
+            color: #ddd;
+            animation: fadeIn 2s ease;
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Основной контент */
         .content {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
             padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
+            max-width: 500px;
             width: 100%;
-            margin: 20px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             animation: fadeInUp 1s ease;
         }
 
@@ -79,38 +113,41 @@
             color: #00aaff;
         }
 
-        .content a {
+        /* Кнопки */
+        .btn {
             display: inline-block;
-            background-color: #00aaff;
-            color: #fff;
+            background: rgba(0, 170, 255, 0.2);
+            color: #00aaff;
             padding: 15px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-size: 1.2rem;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            margin: 10px;
         }
 
-        .content a:hover {
-            background-color: #0088cc;
-            transform: scale(1.05);
+        .btn i {
+            margin-right: 10px;
+        }
+
+        .btn:hover {
+            background: rgba(0, 170, 255, 0.4);
+            transform: translateY(-3px);
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
         }
 
+        /* Футер */
         footer {
-            margin-top: auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #aaa;
+            animation: fadeIn 2s ease;
         }
 
         footer a {
             color: #00aaff;
             text-decoration: none;
-            margin: 0 10px;
-            font-size: 1.2rem;
             transition: color 0.3s ease;
         }
 
@@ -120,24 +157,55 @@
     </style>
 </head>
 <body>
+    <!-- Заголовок -->
     <header>
         <h1>Таблет</h1>
         <h5>Официальный сайт Таблета! Теперь у меня есть больше контента!</h5>
     </header>
 
-    <main>
-        <div class="content">
-            <h3>Перейдя на ссылку Песни, вы сможете скачивать мои песни!</h3>
-            <a href="pesni.html">
-                <i class="fas fa-music"></i> Мои официальные песни
-            </a>
-        </div>
-    </main>
+    <!-- Основной контент -->
+    <div class="content">
+        <h3>Выберите раздел:</h3>
 
-    <footer>
-        <a href="https://t.me/roman_egoroff">
-            <i class="fab fa-telegram"></i> Мой ТГ для общения!
+        <!-- Кнопка для перехода на страницу с песнями -->
+        <a href="pesni.html" class="btn">
+            <i class="fas fa-music"></i> Мои песни
         </a>
+
+        <!-- Кнопка для перехода в карточку музыканта -->
+        <a href="musician.html" class="btn">
+            <i class="fas fa-user"></i> Карточка музыканта
+        </a>
+
+        <!-- Кнопка для перехода в расписание концертов -->
+        <a href="concerts.html" class="btn">
+            <i class="fas fa-calendar-alt"></i> Расписание концертов
+        </a>
+
+        <!-- Кнопка для перехода на страницу с постами -->
+        <a href="posts.html" class="btn">
+            <i class="fas fa-pen"></i> Мои посты
+        </a>
+
+        <!-- Кнопка для перехода на страницу с работой -->
+        <a href="work.html" class="btn">
+            <i class="fas fa-briefcase"></i> Моя работа
+        </a>
+
+        <!-- Кнопка для перехода на страницу обратной связи -->
+        <a href="feedback.html" class="btn">
+            <i class="fas fa-envelope"></i> Обратная связь
+        </a>
+
+        <!-- Кнопка для перехода на страницу "О себе" -->
+        <a href="about.html" class="btn">
+            <i class="fas fa-user-circle"></i> О себе
+        </a>
+    </div>
+
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2025 Таблет. Все права защищены.</p>
     </footer>
 </body>
 </html>
