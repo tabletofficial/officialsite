@@ -125,6 +125,7 @@
             transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             margin: 10px;
+            position: relative;
         }
 
         .btn i {
@@ -135,6 +136,25 @@
             background: rgba(0, 170, 255, 0.4);
             transform: translateY(-3px);
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Значок новости */
+        .btn .badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #ff5555;
+            color: #fff;
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            border-radius: 50px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
 
         /* Футер */
@@ -170,6 +190,7 @@
         <!-- Кнопка для перехода на страницу с песнями -->
         <a href="pesni.html" class="btn">
             <i class="fas fa-music"></i> Мои песни
+            <span class="badge">Не все песни!</span>
         </a>
 
         <!-- Кнопка для перехода в карточку музыканта -->
@@ -190,6 +211,7 @@
         <!-- Кнопка для перехода на страницу с работой -->
         <a href="work.html" class="btn">
             <i class="fas fa-briefcase"></i> Моя работа
+            <span class="badge">Работайте со мной!</span>
         </a>
 
         <!-- Кнопка для перехода на страницу обратной связи -->
@@ -201,11 +223,22 @@
         <a href="about.html" class="btn">
             <i class="fas fa-user-circle"></i> О себе
         </a>
+
+        <!-- Кнопка для перехода на страницу "История музыканта" -->
+        <a href="history.html" class="btn">
+            <i class="fas fa-history"></i> История музыканта
+        </a>
+
+        <!-- Кнопка для перехода на страницу "Розыгрыши" -->
+        <a href="giveaways.html" class="btn">
+            <i class="fas fa-bell"></i> Розыгрыши
+            <span class="badge">Новое!</span>
+        </a>
     </div>
 
     <!-- Футер -->
     <footer>
-        <p>&copy; 2025 Таблет. Все права защищены.</p>
+        <p>&copy; 2023 Таблет. Все права защищены.</p>
     </footer>
 </body>
 </html>
