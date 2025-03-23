@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблет - Карточка музыканта</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Сброс отступов и полей */
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Основные стили */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50, #34495e);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Карточка музыканта */
+        .musician-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Фото музыканта */
+        .musician-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #00aaff;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Имя музыканта */
+        .musician-card h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #00aaff;
+            text-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff;
+        }
+
+        /* Описание */
+        .musician-card p {
+            font-size: 1.1rem;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        /* Ссылки на песни */
+        .song-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .song-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 170, 255, 0.2);
+            color: #00aaff;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .song-links a i {
+            margin-right: 10px;
+        }
+
+        .song-links a:hover {
+            background: rgba(0, 170, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Социальные сети */
+        .social-links {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #00aaff;
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #0088cc;
+            transform: translateY(-5px);
+        }
+
+        /* Футер */
+        footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        footer a {
+            color: #00aaff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #0088cc;
+        }
+    </style>
+</head>
+<body>
+    <!-- Карточка музыканта -->
+    <div class="musician-card">
+        <!-- Фото музыканта -->
+        <img src="https://via.placeholder.com/150" alt="Фото Таблета">
+
+        <!-- Имя музыканта -->
+        <h1>Таблет</h1>
+
+        <!-- Описание -->
+        <p>Музыкант, создающий уникальные треки. Скачивайте мои песни и следите за новыми релизами!</p>
+
+        <!-- Ссылки на песни -->
+        <div class="song-links">
+            <a href="Таблет - K'abut k'a.mp3">
+                <i class="fas fa-download"></i> K'abut k'a
+            </a>
+            <a href="Таблет & Викусян - LeinDain.mp3">
+                <i class="fas fa-download"></i> LeinDain
+            </a>
+            <a href="Таблет & Викусян - LorendMinegine.mp3">
+                <i class="fas fa-download"></i> LorendMinegine
+            </a>
+            <a href="Таблет & Викусян - Tunnel Fend a Popastein.mp3">
+                <i class="fas fa-download"></i> Tunnel Fend a Popastein
+            </a>
+        </div>
+
+        <!-- Социальные сети -->
+        <div class="social-links">
+            <a href="https://t.me/roman_egoroff" target="_blank">
+                <i class="fab fa-telegram"></i>
+            </a>
+            <a href="https://vk.com/gruban_lanpupkun" target="_blank">
+                <i class="fab fa-vk"></i>
+            </a>
+            <a href="Инстаграма у меня никогда не было и не будет :)" target="_blank">
+                <i class="fab fa-no"></i>
+            </a>
+        </div>
+
+        <!-- Футер -->
+        <footer>
+            &copy; 2023 Таблет. Все права защищены.
+        </footer>
+    </div>
+</body>
+</html>

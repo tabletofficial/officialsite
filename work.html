@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблет - Моя работа</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Сброс отступов и полей */
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Основные стили */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50, #34495e);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Заголовок */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeInDown 1.5s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 4rem;
+            margin-bottom: 10px;
+            color: #00aaff;
+            text-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff, 0 0 30px #00aaff;
+            }
+            to {
+                text-shadow: 0 0 20px #00aaff, 0 0 40px #00aaff, 0 0 60px #00aaff;
+            }
+        }
+
+        h5 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ddd;
+            animation: fadeIn 2s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Основной контент */
+        .content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Работа */
+        .work-item {
+            background: rgba(0, 170, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .work-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .work-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #00aaff;
+        }
+
+        .work-item p {
+            font-size: 1rem;
+            color: #ddd;
+            margin: 5px 0;
+        }
+
+        .work-item i {
+            margin-right: 10px;
+            color: #00aaff;
+        }
+
+        /* Кнопка возврата */
+        .back-button {
+            margin-top: 30px;
+            display: inline-block;
+            background: rgba(0, 170, 255, 0.2);
+            color: #00aaff;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button i {
+            margin-right: 10px;
+        }
+
+        .back-button:hover {
+            background: rgba(0, 170, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Футер */
+        footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #aaa;
+            animation: fadeIn 2s ease;
+        }
+
+        footer a {
+            color: #00aaff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #0088cc;
+        }
+    </style>
+</head>
+<body>
+    <!-- Заголовок -->
+    <header>
+        <h1>Таблет</h1>
+        <h5>Моя работа</h5>
+    </header>
+
+    <!-- Основной контент -->
+    <div class="content">
+        <!-- Работа 1 -->
+        <div class="work-item">
+            <h3><i class="fas fa-music"></i>Музыкант</h3>
+            <p>Создание и исполнение музыки. Работа над новыми треками и выступления на концертах.</p>
+        </div>
+
+        <!-- Работа 2 -->
+        <div class="work-item">
+            <h3><i class="fas fa-headphones"></i>Саунд-продюсер</h3>
+            <p>Производство и сведение треков. Работа с другими артистами над их проектами.</p>
+        </div>
+
+        <!-- Работа 3 -->
+        <div class="work-item">
+            <h3><i class="fas fa-smile"></i>Ну и отличный поцык</h3>
+            <p>Я хоть и романовец но всё равно, я крутой😎</p>
+        </div>
+
+        <!-- Кнопка возврата -->
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> На главную
+        </a>
+    </div>
+
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2025 Таблет. Все права защищены.</p>
+    </footer>
+</body>
+</html>
