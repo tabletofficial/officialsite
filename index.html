@@ -4,76 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Таблет - официальный сайт</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Сброс отступов и полей */
         html, body {
             margin: 0;
             padding: 0;
-            overflow-x: hidden; /* Скрыть горизонтальную прокрутку */
+            overflow-x: hidden;
         }
 
         /* Основные стили */
         body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #00ffff, #00ccff);
+            background: linear-gradient(135deg, #00ffff, #00ccff, #ff00ff, #ff0099);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             color: #333;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         header {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            width: 100%;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 50px 20px;
+            color: #fff;
         }
 
         h1 {
-            animation: fadeIn 2s ease-in-out;
+            font-family: 'Pacifico', cursive;
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        h5 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
         }
 
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 300px;
-            margin: 20px auto;
+        .content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            margin: 20px;
+            animation: fadeInUp 1s ease;
         }
 
-        a {
-            color: #ffffff;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #00aaff;
+        }
+
+        .content a {
+            display: inline-block;
             background-color: #00aaff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 50px;
             text-decoration: none;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
-        a:hover {
+        .content a:hover {
             background-color: #0088cc;
-            transform: scale(1.1);
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
         }
 
         footer {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 10px;
+            margin-top: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
             width: 100%;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box; /* Учитывать padding в ширине */
+            text-align: center;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer a {
+            color: #00aaff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #0088cc;
         }
     </style>
 </head>
@@ -82,16 +124,20 @@
         <h1>Таблет</h1>
         <h5>Официальный сайт Таблета! Теперь у меня есть больше контента!</h5>
     </header>
+
     <main>
-        <div class="card">
-            <h3>Мои песни</h3>
-            <p>Скачайте мои треки прямо сейчас!</p>
-            <a href="pesni.html"><i class="fas fa-music"></i> Перейти к песням</a>
+        <div class="content">
+            <h3>Перейдя на ссылку Песни, вы сможете скачивать мои песни!</h3>
+            <a href="pesni.html">
+                <i class="fas fa-music"></i> Мои официальные песни
+            </a>
         </div>
-        <h1>------------------------------------------------------------</h1>
     </main>
+
     <footer>
-        <a href="https://t.me/roman_egoroff"><i class="fab fa-telegram"></i> Мой ТГ для общения!</a>
+        <a href="https://t.me/roman_egoroff">
+            <i class="fab fa-telegram"></i> Мой ТГ для общения!
+        </a>
     </footer>
 </body>
 </html>
